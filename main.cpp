@@ -31,31 +31,47 @@ void login(authenticator& someOne, std::string password) {
 
 int main()
 {
+	//holders
 	Holders holdersOne(Cpf("123445"), "ts217","1234");
 	Holders holdersTwo(Cpf("544321"), "217TS", "5431");
+	Holders holdersThree(Cpf("5355555"), "jhoon", "9874");
+	
+	//conta poupanca
+	savingsAccount accountOne("12345", holdersOne); 
 
+	//count corrente
+	currentAccount accountTwo("67890", holdersTwo); 
+	currentAccount accountthree("55555", holdersThree);
 
-	savingsAccount accountOne("12345", holdersOne);
-	currentAccount accountTwo("67890", holdersTwo);
+	//metodos para depositar saldo na conta
+	accountOne.deposit(200);
+	accountTwo.deposit(200);
+	accountthree.deposit(200);
 
+	// metodo oveload para depositar 
+	(Conta&)accountOne+=(400); //(cast&) o cast faz referencia a conta  ( quando se trata de herenca n e possivel a o overload
+	(Conta&)accountTwo+=(400);
+	(Conta&)accountthree += (400);
 
-	accountOne.deposit(400);
-	accountTwo.deposit(900);
+	//metodo oveload de tranferencia entre contas
 
-	doWithDraw(accountOne);
-	doWithDraw(accountTwo);
+	accountTwo += accountthree;
 
-	accountTwo.tranferToAnotherAccount(accountOne, 250);
+	//doWithDraw(accountOne);
+	//doWithDraw(accountTwo);
 
+	//accountTwo.tranferToAnotherAccount(accountOne, 250);
+
+	//extrato da conta
 	showBalance(accountOne);
 	showBalance(accountTwo);
-
+	showBalance(accountthree);
 	
 
 	cout << "number of accounts: " << Conta::getNumberOfAccounts() << endl;
-	dayFromWeek tuesday = tuesday;
 
-	ManagerBank mane(Cpf("000.000.000-00"), "mane", 1500, tuesday, "123456");
+
+	ManagerBank mane(Cpf("000.000.000-00"), "mane", 1500, dayFromWeek::monday, "123456");
 
 
 	return 0;
