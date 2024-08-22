@@ -48,6 +48,10 @@ void Conta::deposit(float amountDeposit) {
 	balance += amountDeposit;
 }
 
+void Conta::operator+=(float value) {
+	deposit(value);
+}
+
 //sets and gets
 
 float Conta::getBalance()const{

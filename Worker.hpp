@@ -7,7 +7,7 @@
 class Worker: public Person{
 private:
 	float wages;
-	short int payDay;
+	dayFromWeek  payDay;
 
 public:
 	Worker(Cpf cpf, std::string nome, float wages, dayFromWeek payDay);

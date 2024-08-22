@@ -8,5 +8,9 @@ public :
 
 	float tax()const override; 
 	void tranferToAnotherAccount(Conta& conta, float value);
+
+	//overload - operacao de tranferencia entre contas correntes
+	
+	void operator +=(currentAccount & sourceAccount);
 };
 

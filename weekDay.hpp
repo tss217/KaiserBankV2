@@ -1,5 +1,5 @@
 #pragma once
 
-enum dayFromWeek{
+enum class dayFromWeek :unsigned char{
 	sunday, monday,  tuesday, wednesday,  thursday, friday, saturday
 };

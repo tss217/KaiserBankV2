@@ -23,6 +23,7 @@ public:
 
 	virtual void withDraw(float amountWithdrawn);
 	void deposit(float amoutDeposit);
+	void operator+=(float value);
 
 	float getBalance()const;
 	std::string getNumber()const;
