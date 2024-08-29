@@ -29,12 +29,21 @@ void login(authenticator& someOne, std::string password) {
 	}
 }
 
+//overload do operador << para retonar a  exbicao da conta
+//funcao extrena da classe conta
+ostream&  operator<<(ostream& cout, const Conta& conta){
+	Person holder  = conta.holders;
+	cout<<"o saldo da conta e:"<< conta.getBalance()<<endl;
+	cout<<"O titular:"<< holder.getname() << "\n"<<endl;
+	return cout;
+}
+
 int main()
 {
 	//holders
-	Holders holdersOne(Cpf("123445"), "ts217","1234");
-	Holders holdersTwo(Cpf("544321"), "217TS", "5431");
-	Holders holdersThree(Cpf("5355555"), "jhoon", "9874");
+	Holders holdersOne(Cpf("123445"), "Rosa Young","1234");
+	Holders holdersTwo(Cpf("544321"), "Mayme Morton", "5431");
+	Holders holdersThree(Cpf("5355555"), "Edna Hunter", "9874");
 	
 	//conta poupanca
 	savingsAccount accountOne("12345", holdersOne); 
@@ -63,15 +72,18 @@ int main()
 	//accountTwo.tranferToAnotherAccount(accountOne, 250);
 
 	//extrato da conta
-	showBalance(accountOne);
-	showBalance(accountTwo);
-	showBalance(accountthree);
+	cout<<  accountOne;
+	cout<< accountTwo;
+	cout<< accountthree;
+
+	
+	// funcao antiga para exibir o saldo da conta showBalance(accountthree);
 	
 
 	cout << "number of accounts: " << Conta::getNumberOfAccounts() << endl;
 
 
-	ManagerBank mane(Cpf("000.000.000-00"), "mane", 1500, dayFromWeek::monday, "123456");
+	ManagerBank MaudJoseph(Cpf("000.000.000-00"), "Maud Joseph", 1500, dayFromWeek::monday, "123456");
 
 
 	return 0;

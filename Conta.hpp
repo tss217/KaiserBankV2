@@ -31,4 +31,7 @@ public:
 
 	virtual float tax() const = 0;
 
+	//essa funcao externa que tem acesso a classe
+	friend std::ostream&  operator<<(std::ostream& cout, const Conta& conta);
+
 };

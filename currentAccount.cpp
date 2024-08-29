@@ -13,3 +13,8 @@ void currentAccount::tranferToAnotherAccount(Conta& destiny, float value) {
 	withDraw(value);
 	destiny.deposit(value);
 }
+
+//metodo overload para transferecia de conta
+void currentAccount::operator +=(currentAccount & sourceAccount){
+	sourceAccount.tranferToAnotherAccount(*this, sourceAccount.getBalance()/2);
+}

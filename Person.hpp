@@ -11,5 +11,6 @@ private:
 	void checkNameSize();
 public:
 	Person(Cpf cpf, std::string nome);
+	std::string  getname()const;
 };
 

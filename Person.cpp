@@ -14,3 +14,6 @@ void Person::checkNameSize() {
 	}
 }
 
+std::string Person::getname()const{
+	return nome;
+}
