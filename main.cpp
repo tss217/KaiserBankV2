@@ -17,7 +17,7 @@ void showBalance(const Conta& conta) {
 }
 
 void doWithDraw(Conta&conta) {
-	conta.withDraw(200);
+	cout  << "o saldo e "<< conta.withDraw(200)<<endl;
 }
 
 void login(authenticator& someOne, std::string password) {
@@ -78,7 +78,7 @@ int main()
 
 	
 	// funcao antiga para exibir o saldo da conta showBalance(accountthree);
-	
+
 
 	cout << "number of accounts: " << Conta::getNumberOfAccounts() << endl;
 

@@ -17,11 +17,16 @@ protected:
 	static int numberOfAccounts;
 public:
 
+	// estou criando novos tipos prara seren utilizados  no metodo de  saque 
+	enum withdrawlResult{
+		Sucesses, NegativeValue, insuffcientBalance
+	};
+
 	Conta(std::string number, Holders holders);
 
 	virtual ~Conta();
 
-	virtual void withDraw(float amountWithdrawn);
+	withdrawlResult withDraw(float amountWithdrawn);
 	void deposit(float amoutDeposit);
 	void operator+=(float value);
 
@@ -33,5 +38,4 @@ public:
 
 	//essa funcao externa que tem acesso a classe
 	friend std::ostream&  operator<<(std::ostream& cout, const Conta& conta);
-
 };
