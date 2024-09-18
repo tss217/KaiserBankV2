@@ -18,12 +18,12 @@ Conta::~Conta() {
 
 //operations
 
-std::pair<Conta::withdrawlResult, float> Conta::withDraw(float amountWithdraw) {
+std::variant<Conta::withdrawlResult, float> Conta::withDraw(float amountWithdraw) {
 	
 
 	if (amountWithdraw<0) {
 		std::cout << "n�o pode sacer calor negativo" << std::endl;
-		return std::make_pair(NegativeValue, balance);
+		return NegativeValue;
 	}
 
 
@@ -32,11 +32,11 @@ std::pair<Conta::withdrawlResult, float> Conta::withDraw(float amountWithdraw) {
 
 	if (amountTowithDraw > balance) {
 		std::cout << "valor invalido" << std::endl;
-		return std::make_pair(insuffcientBalance,balance);
+		return insuffcientBalance;
 	}
 
 	balance -= amountTowithDraw;
-	return std::make_pair(Sucesses,balance);
+	return balance;
 }
 
 void Conta::deposit(float amountDeposit) {

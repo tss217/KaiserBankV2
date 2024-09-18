@@ -17,11 +17,10 @@ void showBalance(const Conta& conta) {
 }
 
 void doWithDraw(Conta&conta) {
-	std::pair<Conta::withdrawlResult,float> result = conta.withDraw(150);
-	if(result.first == Conta::Sucesses){
-		cout <<"Novo saldo:"<<result.second <<endl;
+	std::variant<Conta::withdrawlResult,float>result = conta.withDraw(200);
+	if(auto saldo = std::get_if<float>(&result)){
+		cout<<"novo saldo:"<<*saldo<<endl;
 	}
-	
 }
 
 void login(authenticator& someOne, std::string password) {

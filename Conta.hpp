@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <variant>
 #include <utility>
 #include "Holders.hpp"
 
@@ -20,14 +21,14 @@ public:
 
 	// estou criando novos tipos prara seren utilizados  no metodo de  saque 
 	enum withdrawlResult{
-		Sucesses, NegativeValue, insuffcientBalance
+		NegativeValue, insuffcientBalance
 	};
 
 	Conta(std::string number, Holders holders);
 
 	virtual ~Conta();
 	//criando um resultado par
-	std::pair< withdrawlResult, float> withDraw(float amountWithdrawn);
+	std::variant< withdrawlResult, float> withDraw(float amountWithdrawn);
 	void deposit(float amoutDeposit);
 	void operator+=(float value);
 
