@@ -12,9 +12,9 @@ float currentAccount::tax()const {
 //foi utilizado o tipo  criado na class conta para que haja um  saida mais adquada do metodo 
 
 void currentAccount::tranferToAnotherAccount(Conta& destiny, float value) {
-	Conta::withdrawlResult result = withDraw(value);
+	std::pair<Conta::withdrawlResult,float> result = withDraw(value);
 
-	if(result  == Sucesses){
+	if(result.first  == Sucesses){
 		destiny.deposit(value);
 	}
 	

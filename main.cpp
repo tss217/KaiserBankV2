@@ -17,7 +17,11 @@ void showBalance(const Conta& conta) {
 }
 
 void doWithDraw(Conta&conta) {
-	cout  << "o saldo e "<< conta.withDraw(200)<<endl;
+	std::pair<Conta::withdrawlResult,float> result = conta.withDraw(150);
+	if(result.first == Conta::Sucesses){
+		cout <<"Novo saldo:"<<result.second <<endl;
+	}
+	
 }
 
 void login(authenticator& someOne, std::string password) {
@@ -71,6 +75,9 @@ int main()
 
 	//accountTwo.tranferToAnotherAccount(accountOne, 250);
 
+	//testando novo metodo de saque
+	doWithDraw(accountOne);
+
 	//extrato da conta
 	cout<<  accountOne;
 	cout<< accountTwo;
@@ -79,6 +86,7 @@ int main()
 	
 	// funcao antiga para exibir o saldo da conta showBalance(accountthree);
 
+	
 
 	cout << "number of accounts: " << Conta::getNumberOfAccounts() << endl;
 

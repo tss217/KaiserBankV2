@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <utility>
 #include "Holders.hpp"
 
 class Conta
@@ -25,8 +26,8 @@ public:
 	Conta(std::string number, Holders holders);
 
 	virtual ~Conta();
-
-	withdrawlResult withDraw(float amountWithdrawn);
+	//criando um resultado par
+	std::pair< withdrawlResult, float> withDraw(float amountWithdrawn);
 	void deposit(float amoutDeposit);
 	void operator+=(float value);
 
