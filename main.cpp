@@ -17,6 +17,7 @@ void showBalance(const Conta& conta) {
 }
 
 void doWithDraw(Conta&conta) {
+	
 	std::variant<Conta::withdrawlResult,float>result = conta.withDraw(200);
 	if(auto saldo = std::get_if<float>(&result)){
 		cout<<"novo saldo:"<<*saldo<<endl;
@@ -39,6 +40,12 @@ ostream&  operator<<(ostream& cout, const Conta& conta){
 	cout<<"o saldo da conta e:"<< conta.getBalance()<<endl;
 	cout<<"O titular:"<< holder.getname() << "\n"<<endl;
 	return cout;
+}
+
+//funcao template para retornar o menor valor entre dois valores
+//Templete e uma funcao que aceita qualquer tipo de dado
+template<typename T>T smaller(T a, T b) {
+	return a < b ? a : b;
 }
 
 int main()
