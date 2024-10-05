@@ -12,4 +12,3 @@ std::string Cpf::getIndetification()const {
 
 	return indentification;
 }
-

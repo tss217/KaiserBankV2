@@ -5,7 +5,7 @@
 #include "Cpf.hpp"
 #include "authenticator.hpp"
 
-class Holders : public Person, public authenticator {
+class Holders : public Person<Cpf>, public authenticator {
 public:
     Holders(Cpf cpf, std::string nome, std::string password);
 };

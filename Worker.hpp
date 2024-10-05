@@ -4,7 +4,7 @@
 #include "Cpf.hpp"
 #include <string>
 
-class Worker: public Person{
+class Worker: public Person<Cpf>{
 private:
 	float wages;
 	dayFromWeek  payDay;
